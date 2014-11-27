@@ -1,0 +1,58 @@
+.social-follow {
+  display: none;
+  i {
+    font-size: 1.5em;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+  }
+  @include respond-to(tablets) {
+    display: block;
+    position: fixed;
+    right: 0;
+    top: 22%;
+    z-index: 9999;
+    .ic {
+      padding: .5em;
+      color: white;
+      cursor: pointer;
+      &.close {
+        &:after {
+          content: "";
+          padding: .15em;
+          padding-right: .5em;
+          border-right: 1px solid white;
+        }
+      }
+    }
+    .trigger {
+      color: white;
+      #tablet {
+          font-size: .7em;
+      }
+      .desktop {
+        display: none;
+      }
+      @include respond-to(desktops) {
+        #tablet {
+          display: none;
+        }
+        .desktop {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.undo {
+  display: block;
+  position: fixed;
+  right: 0;
+  top: 16%;
+  z-index: 9999;
+  font-size: 1.2em;
+  color: white;
+  padding: .5em;
+  cursor: pointer;
+}

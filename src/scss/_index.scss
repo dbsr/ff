@@ -1,0 +1,260 @@
+@import 'post';
+
+.top-section {
+  margin-top: -1%;
+  position: relative;
+  .header-index {
+    h1, h4 {
+      line-height: 1;
+      text-align: center;
+    }
+    h1 {
+      font-size: 40px;
+    }
+    h4 {
+      font-size: 28px;
+    }
+
+  }
+  @include respond-to(tablets) {
+    .header-index {
+      padding-top: 0;
+      text-align: center;
+      h1 {
+        @include dynamic-query(font-size, 30px, 540px, 1024px, 4);
+      }
+      h2 {
+        @include dynamic-query(font-size, 25px, 540px, 1024px, 4);
+      }
+      h4 {
+        @include dynamic-query(font-size, 20px, 540px, 1024px, 4);
+      }
+    }
+  }
+  @include respond-to(desktops) {
+    .header-index  {
+      h1 {
+        @include dynamic-query(font-size, 43px, 1024px, 1920px, 4);
+      }
+      h2 {
+        @include dynamic-query(font-size, 36px, 1024px, 1920px, 4);
+      }
+      h4 {
+        @include dynamic-query(font-size, 25px, 1024px, 1920px, 4);
+      }
+      h3 {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.portals {
+  display: block;
+  position: relative;
+  width: 100%;
+  ul {
+    position: relative;
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 2px 1px 0 1px;
+    .portal-button{
+      float: left;
+      margin: 0;
+      z-index: 1000;
+      cursor: pointer;
+      width: 100%;
+      border-top: 1px solid white;
+      height: 0;
+      padding-bottom: 35%;
+      &:hover {
+        &.investors {
+          .name, .incentive {
+            background: $color_investors;
+            background: fade-out($color_investors, .4);
+          }
+        }
+        &.students {
+          .name, .incentive {
+            background: $color_students;
+            background: fade-out($color_students, .4);
+          }
+        }
+        &.highschools {
+          .name, .incentive {
+            background: $color_highschools;
+            background: fade-out($color_highschools, .4);
+          }
+        }
+        &.universities {
+          .name, .incentive {
+            background: $color_universities;
+            background: fade-out($color_universities, .4);
+          }
+        }
+      }
+      &.students {
+        border-top: none;
+      }
+      position: relative;
+      display: inline-block;
+      color: #222;
+      background-position: center;
+      background-size: cover;
+      &.students {
+        background-image: url(/images/girl-in-park-front._1024px.jpg);
+      }
+      &.investors {
+        background-image: url(/images/investor-for-bushes-front._1024px.jpg);
+      }
+      &.highschools {
+        background-image: url(/images/teacher-front._1024px.jpg);
+      }
+      &.universities {
+        background-image: url(/images/happy-graduate-front._1024px.jpg);
+      }
+      .name {
+        @include transition(background, 120ms, ease);
+        width: 100%;
+        padding-left: 2%;
+        line-height: 1.2;
+        background: lighten($color_homepage, .4);
+        background: fade-out($color_homepage, .4);
+        font-family: 'source_sans_prolight';
+        color: white;
+        font-size: 18px;
+        .inc {
+          line-height: 1.2;
+        }
+      }
+      .caption {
+        width: 60%;
+        padding-left: 2%;
+        font-family: 'source_sans_prolight';
+        padding-top: 4%;
+        font-size: 20px;
+      }
+      .incentive {
+        display: none;
+      }
+    }
+  }
+}
+
+@include respond-to(tablets) {
+  .top-section {
+    background-size: 100% auto;
+    margin-top: 0;
+    padding-bottom: 33%;
+    .header-index {
+      position: absolute;
+      top: 35%;
+      left: 15%;
+      right: 15%;
+      font-size: 110%;
+      p {
+        margin: 0;
+      }
+      &.about {
+        top: 28%;
+      }
+    }
+  }
+  .portals {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 50%;
+    ul {
+      position: relative;
+      list-style: none;
+      width: 100%;
+      margin: 0;
+      padding-top: 1px;
+      .portal-button{
+        width: 50%;
+        border-left: 1px solid white;
+        border-top: none;
+        border-bottom: 1px solid white;
+        padding-bottom: 23%;
+        background-size: 100% auto;
+        color: #222;
+        .name {
+        @include dynamic-query(font-size, 13px, 540px, 1024px, 20);
+        }
+        .caption {
+          width: 59%;
+          padding-top: 6%;
+        @include dynamic-query(font-size, 15px, 540px, 1024px, 20);
+
+
+
+        }
+        .incentive {
+        }
+      }
+    }
+  }
+}
+@include respond-to(desktops) {
+  .top-section {
+    padding-bottom: 37%;
+    position: relative;
+    .header-index {
+      position: absolute;
+      width: 50%;
+      left: 25%;
+      right: 25%;
+      top: 45%;
+      &.about {
+        top: 39%;
+      }
+    }
+  }
+  .portals {
+    margin-bottom: 25%;
+    ul {
+        font-size: 19px;
+ 
+      width: 100%;
+      .portal-button{
+        width: 25%;
+        padding-bottom: 13%;
+        .name {
+            font-size: 19px;
+           @include dynamic-query(font-size, 14px, 1024px, 1920px, 20);
+
+          .inc {
+            display: none;
+          }
+        }
+        .caption {
+          width: 70%;
+          font-family: 'source_sans_prolight';
+          font-size: 19px;
+          @include dynamic-query(font-size, 16px, 1024px, 1920px, 20);
+          padding: 8% 4% 0 2%;
+        }
+        .incentive {
+          position: absolute;
+          font-family: 'source_sans_prolight';
+          color: white;
+          @include transition(background, 120ms, ease);
+          display: block;
+          width: 100%;
+          padding-left: 2%;
+          line-height: 1.2;
+          background: lighten($color_homepage, .4);
+          background: fade-out($color_homepage, .4);
+          color: white;
+          bottom: 0;
+          top: auto;
+          left: 0;
+          @include dynamic-query(font-size, 14px, 1024px, 1920px, 20);
+
+        }
+      }
+    }
+  }
+}

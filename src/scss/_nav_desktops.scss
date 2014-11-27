@@ -1,0 +1,48 @@
+@include respond-to(desktops) {
+  .nav-container {
+    position: fixed;
+    opacity: .9em;
+    z-index: 9999;
+    height: 5em;
+    margin-bottom: 5em;
+    .portal-nav {
+      .nav-items {
+        width: 70%;
+        font-size: .99em;
+        .logo {
+          width: 30%;
+          margin-left: -7.8%;
+          margin-right: 5%;
+          margin-top: 0;
+        }
+        .items {
+          .item {
+            &:hover {
+            }
+          }
+        }
+      }
+    }
+    .portal-nav-sub-container {
+      @include flexbox;
+      @include justify-content(center);
+      @include opacity(.9);
+      width: 100%;
+      .portal-nav-sub {
+        position: relative;
+        @include flexbox;
+        @include opacity(.9);
+        @include justify-content(space-between);
+        width: 70%;
+        padding-left: 15%;
+        padding-right: 15%;
+        color: white;
+        padding: .5em 0;
+        .item {
+          color: white;
+        }
+
+      }
+    }
+  }
+}

@@ -1,0 +1,222 @@
+.nav-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+  .mobile-item {
+    position: absolute;
+    font-size: 1.2em;
+    right: .5em;
+    top: 50%;
+    margin-top: -.6em;
+    color: white;
+    cursor: pointer;
+  }
+  .mobile-menu {
+    position: fixed;
+    z-index: 9999;
+    width: 80%;
+    left: 6%;
+    color: white;
+    text-align: center;
+    font-size: 1.4em;
+    padding: 0;
+    opacity: .9;
+    i {
+      position: absolute;
+      cursor: pointer;
+      right: 0;
+      top: 4px;
+    }
+    h3 {
+      width: 100%;
+      background: $color_greywolf_secondary;
+      color: white;
+      font-weight:bold;
+      margin: 0;
+
+
+    }
+    .item {
+      display: block;
+      width: 100%;
+      color: white;
+      padding: .5em 0;
+      background-color: $color_greywolf;
+      color: white;
+      margin-top: .15em;
+    }
+
+
+  }
+  .portal-nav {
+    position: relative;
+    width: 100%;
+    position: relative;
+    @include respond-to(handhelds) {
+    }
+    .nav-items {
+      display: inline-block;
+      .logo {
+        display: inline-block;
+        width: 50%;
+        img {
+          width: 100%;
+        }
+      }
+      .items {
+        display: none;
+      }
+    }
+
+  }
+  .portal-nav-sub-container {
+    display: none;
+  }
+  @include respond-to(tablets) {
+    .portal-nav {
+      display: inline-block;
+      .nav-items {
+        width: 100%;
+        position: relative;
+        text-align: center;
+        .mobile {
+          display: none;
+        }
+        .logo {
+          width: 20%;
+          margin-left: auto;
+          margin-right: auto;
+          padding: .125em 0;
+          display: block;
+          height: 100%;
+          top: 3%;
+        }
+        .items {
+          display: block;
+          .item {
+            float: left;
+            font-size: .75em;
+            text-align: center;
+            display: inline-block;
+            width: 20%;
+            text-transform: uppercase;
+            color: white;
+            padding: 1em 0;
+            &.active {
+              border-bottom-style: solid;
+              border-bottom-width: .35em;
+            }
+            &:hover {
+              border-bottom-style: solid;
+              border-bottom-width: .35em;
+            }
+          }
+        }
+      }
+    }
+    .portal-nav-sub-container {
+      position: relative;
+      background: $color_homepage_secondary;
+      background: fade-out($color_homepage_secondary, .1);
+      .portal-nav-sub {
+        width: 100%;
+        text-align: center;
+        &.students {
+          text-align: left;
+        }
+        &.highschools, &.about {
+          text-align: right;
+        }
+        .item {
+          color: white;
+          text-transform: uppercase;
+          font-size: .9em;
+          margin-right: 2%;
+          padding: .5em 0;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+  @include respond-to(desktops) {
+    .portal-nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding: 0;
+      z-index: 2001;
+      height: 4em;
+      background: rgba(87, 88, 92, .9)!important;
+      .nav-items {
+        position: relative;
+        width: 100%;
+        height: 4em;
+        .logo {
+          position: absolute;
+          margin: 0;
+          left: -3.6em;
+          display: inline-block;
+          padding: 0;
+          vertical-align: middle;
+          height: 4em;
+          width: 11.5em;
+          img {
+            display: table-cell;
+          }
+        }
+        .items {
+          float: right;
+          width: 84%;
+          height: 4em;
+          padding: 0;
+          display: inline-block;
+          position: relative;
+          .item {
+            height: 100%;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            span {
+              position: absolute;
+              text-transform: uppercase;
+              color: white;
+              top: 50%;
+              height: .9em;
+              font-size: 1.2em;
+              margin-top: -.45em;
+              left: 0;
+              right: 0;
+            }
+            &:active {
+            }
+          }
+        }
+      }
+    }
+    .portal-nav-sub-container {
+      z-index: 2001;
+      width: 100%;
+      top: 4em;
+      position: fixed;
+      padding: .25em 0;
+      a {
+        padding: 0!important;
+        padding-left: 1em!important;
+        padding-right: 1em!important;
+        margin: 0!important;
+        border-left: 1px solid white;
+        text-align: center;
+        &:nth-child(1) {
+          border-left: none;
+        }
+      }
+
+    }
+
+  }
+}

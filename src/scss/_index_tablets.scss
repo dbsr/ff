@@ -1,0 +1,58 @@
+@include respond-to(tablets) {
+  .container {
+    position: relative;
+    margin: 0 5%;
+    .splash {
+      .logo {
+        @include align-items(flex-start);
+        img {
+          width: 40%;
+        }
+        .logo-caption {
+          text-align: left;
+          margin-left: 12%;
+          max-width: 88%;
+          p {
+            font-size: 1.1em;
+          }
+        }
+      }
+      .portals {
+        margin-top: 0%;
+        @include flex-flow(column);
+        margin-bottom: 0;
+        .portal-buttons {
+          @include justify-content(space-between);
+          @include flex-flow(row);
+          padding-left: 0;
+          .portal-button {
+            margin-bottom: 0;
+            @include transition(background-color, .5s ease);
+            width: 24%;
+            padding: 1.5% 0;
+            margin-left: 0;
+            margin-right: 0;
+            font-size: 1em;
+            &:hover {
+              color: green;
+              &.investors {
+                background-color: fade-out($color_investors, .9);
+              }
+            }
+          }
+        }
+        .portal-captions {
+          @include flexbox;
+          height: 100px;
+          .portal-caption {
+            margin-top: 1%;
+            width: 100%;
+            border-top-style: solid;
+            border-top-width: .45rem;
+            border-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}

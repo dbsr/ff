@@ -1,0 +1,9 @@
+
+
+@mixin test($minSize, $vars...) {
+  @debug: $minsize;
+}
+
+body {
+@include test(20, 30);
+}

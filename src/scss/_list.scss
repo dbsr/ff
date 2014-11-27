@@ -1,0 +1,46 @@
+.top-section-list {
+  color: white;
+  @include text-shadow(2px,  2px, 1px, black);
+  font-size: 24px;
+  font-family: 'source_sans_prolight', sans-serif;
+  ul {
+    list-style-type: none;
+    margin-left: .25em;
+    padding-top: 1%;
+    li {
+      line-height: 1.25;
+      @include text-shadow(2px,  2px, 1px, black);
+      font-weight: bold;
+      &:before {
+        font-family: "Icons";
+        content: "\f105";
+        float: left;
+        margin-right: .25em;
+        @include opacity(.7);
+      }
+
+    }
+  }
+
+  @include respond-to(tablets) {
+    @include text-shadow(0, 0, 0, rgba(0,0,0,0));
+    ul {
+      li {
+        @include text-shadow(0, 0, 0, rgba(0,0,0,0));
+      font-weight: normal;
+
+      }
+    }
+
+    color: rgb(30, 30, 30);
+    display: block;
+    @include dynamic-query(font-size, 11px, 540px, 1024px, 20);
+  }
+
+  @include respond-to(desktops) {
+    @include dynamic-query(font-size, 19px, 1024px, 1920px, 20);
+    ul {
+    }
+  }
+
+}

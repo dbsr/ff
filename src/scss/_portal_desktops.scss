@@ -1,0 +1,44 @@
+  @include respond-to(desktops) {
+    @include flex-flow(row);
+    @include justify-content(space-between);
+    width: 30%;
+    article {
+
+      ul {
+        list-style: none;
+        padding: 20px;
+        margin:0;
+      }
+
+      li { 
+        padding-left: 1em; 
+        text-indent: -.9rem;
+      }
+
+      li:before {
+        font-family: "Icons";
+        content: "\f105";
+        font-size: .9rem;
+        float: left;
+        padding-right: 1em;
+        padding-top: .1em;
+      }
+
+
+      width: 70%;
+      &.middle {
+        width: 100%;
+        @include flexbox;
+        @include justify-content(space-around);
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    aside {
+      width: 20%;
+      p {
+        font-size: .8rem;
+      }
+    }
+  }
+

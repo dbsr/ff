@@ -1,0 +1,171 @@
+@import 'lib/flex';
+@import 'lib/css3-mixins';
+
+
+
+// util
+@import 'media_queries';
+@import 'common'; 
+@import 'animations';
+@import 'transformations';
+
+// modules
+@import 'buttons';
+@import 'nav';
+@import 'portal';
+@import 'divider';
+@import 'index';
+@import 'footer';
+@import 'contact';
+
+@mixin dynamic-query($attr, $val, $start, $end, $n) {
+  $cur: $start;
+  $step: ($end - $start) / $n;
+  @while $cur < $end {
+    @media only screen and (min-width: $cur) {
+      #{$attr}: ($cur / $start) * $val;
+    }
+    $cur: $cur + $step;
+  }
+}
+
+// fonts
+@font-face {
+  font-family: 'source_sans_proregular';
+  src: url('../fonts/sourcesanspro-regular-webfont.eot');
+  src: url('../fonts/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/sourcesanspro-regular-webfont.woff') format('woff'),
+  url('../fonts/sourcesanspro-regular-webfont.ttf') format('truetype'),
+  url('../fonts/sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'source_sans_prolight';
+  src: url('../fonts/sourcesanspro-light-webfont.eot');
+  src: url('../fonts/sourcesanspro-light-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/sourcesanspro-light-webfont.woff') format('woff'),
+  url('../fonts/sourcesanspro-light-webfont.ttf') format('truetype'),
+  url('../fonts/sourcesanspro-light-webfont.svg#source_sans_prolight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'source_sans_prosemibold';
+  src: url('../fonts/sourcesanspro-semibold-webfont.eot');
+  src: url('../fonts/sourcesanspro-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/sourcesanspro-semibold-webfont.woff') format('woff'),
+  url('../fonts/sourcesanspro-semibold-webfont.ttf') format('truetype'),
+  url('../fonts/sourcesanspro-semibold-webfont.svg#source_sans_prosemibold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+.mq-indicator {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  display: block;
+  top: 0;
+  right: 0;
+  background: green;
+  @include respond-to(tablets) {
+    background: yellow;
+  }
+  @include respond-to(desktops) {
+    background: blue;
+  }
+}
+
+
+// shared layout / settings
+
+html {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+html,body {
+  padding: 0px;
+}
+body {
+  font-family: 'source_sans_proregular', sans-serif;
+  color: $color_font;
+  height: 100%;
+  h1, h2, h3, h4 {
+    font-family: 'source_sans_prolight', sans-serif;
+  }
+}
+a {
+  display: inline-block;
+}
+
+.container {
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+  @include box-sizing(border-box);
+  @include respond-to(tablets) {
+    width: 90%;
+  }
+  @include respond-to(desktops) {
+    width: 70%;
+    max-width: 1024px;
+  }
+}
+
+.anchor-offset {
+  visibility: hidden;
+  display: block;
+  margin-top: 50em;
+  top: -50em;
+  position: relative;
+
+}
+
+.ng-social-counter {
+  display: none!important;
+}
+
+header._top-section {
+  background-image: url(/images/girl-in-park-top._1920px.jpg);
+  background-size: 100%;
+  background-attachment: fixed;
+  height: 0;
+  padding-bottom: 30%;
+  display: block;
+  position: relative;
+
+  ._top-section-content {
+    border: 1px solid red;
+    position: absolute;
+    top: 32%;
+    left: 15%;
+    height: 64%;
+    width: 70%;
+    ._text {
+      width: 64%;
+      h3 {
+        @include dynamic-query(font-size, 30px, 1024px, 1920px, 20);
+      }
+      ul {
+        margin-left: 1.125em;
+        font-size: 1.5em;
+      }
+    }
+
+    button {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+}
+
+
+
+

@@ -1,0 +1,207 @@
+// vendor mixins
+@mixin transition-duration($duration) {
+  @include apply_browser_prefixes(transition-duration, $duration);
+}
+
+@mixin animation-duration($duration) {
+  @include apply_browser_prefixes(animation-duration, $duration);
+}
+
+@mixin animation-direction($direction) {
+  @include apply_browser_prefixes(animation-direction, $direction);
+}
+
+@mixin transform($transform) {
+  @include apply_browser_prefixes(transform, $transform);
+}
+
+@mixin animation-iteration-count($count) {
+  @include apply_browser_prefixes(animation-iteration-count, $count);
+}
+
+@mixin animation($animation) {
+  @include apply_browser_prefixes(animation, $animation);
+}
+
+@mixin animation-name($animation-name) {
+  @include apply_browser_prefixes(animation-name, $animation-name);
+}
+
+@mixin keyframes($name) {
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// common
+@mixin hacks() {
+  @include transform(translateZ(0));
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+@mixin trigger($trigger) {
+  @if $trigger == infinite {
+    @include animation-iteration-count(infinite);
+    @content;
+  }
+  @else if $trigger == hover {
+    &:hover {
+      @content;
+      @include animation-iteration-count(infinite);
+    }
+  }
+}
+
+
+// scroll down animation
+@include keyframes(scrollDown) {
+  0% {
+    @include transform(translateY(0px));
+  }
+  100% {
+    @include transform(translateY(8px));
+  }
+}
+
+@mixin _scrollDown() {
+  @include hacks();
+  @include animation-duration(.7s);
+  @include animation-name(scrollDown);
+  @include animation-direction(alternate);
+}
+
+@mixin scrollDown($trigger) {
+  @include trigger($trigger) {
+    @include _scrollDown();
+  }
+}
+
+// nav fade in down animation
+@include keyframes(navFadeInDown) {
+  0% {
+    opacity: 0;
+    @include transform(translateY(-20px));
+  }
+  100% {
+    opacity: .9;
+    @include transform(translateY(0px));
+  }
+}
+
+.navFadeInDown {
+  @include hacks();
+  @include animation-duration(1s);
+  @include animation-name(navFadeInDown);
+}
+
+@include keyframes(navFadeOutUp) {
+  0% {
+    opacity: .9;
+    @include transform(translateY(0px));
+  }
+  100% {
+    opacity: 0;
+    @include transform(translateY(-20px));
+  }
+}
+
+.navFadeOutUp {
+  @include hacks();
+  @include animation-duration(1s);
+  @include animation-name(navFadeInDown);
+}
+
+
+@include keyframes(fadeInDown) {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+
+
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+    -ms-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+}
+
+.fadeOutLeft {
+  -webkit-animation-name: fadeOutLeft;
+  animation-name: fadeOutLeft;
+}
+
+.fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  opacity: 1;
+  &.ng-enter,
+  &.ng-leave {
+    @include transition(all, 1s, ease)
+  }
+  &.ng-enter {
+    opacity: 0;
+  }
+  &.ng-leave {
+    opacity: 1;
+  }
+  &.ng-leave-active {
+    opacity: 0;
+  }
+}

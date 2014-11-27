@@ -1,0 +1,42 @@
+.divider {
+  clear: both;
+  text-align: center;
+  vertical-align: middle;
+  display: block;
+  .divider-img {
+    display: block;
+    display: block;
+    @include background-size(cover, cover);
+    height: 12em;
+  }
+  @include respond-to(tablets) {
+    .divider-img {
+      height: 24em;
+      background-repeat: no-repeat;
+      @include background-size(100%, auto);
+    }
+  }
+}
+@include respond-to(handhelds) {
+  .button {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    .divider-button {
+      width: 48%;
+      padding: 1.4rem .8rem;
+      line-height: 1.1;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@include respond-to(desktops) {
+  .divider {
+    .divider-img {
+      background-attachment: fixed;
+      -webkit-background-size: cover, cover;
+      background-size: cover, cover;
+    }
+  }
+}

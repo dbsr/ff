@@ -1,0 +1,26 @@
+.forms {
+  @include flexbox;
+  @include flex-flow(row);
+  margin-bottom: 5%;
+  .form {
+    @include flexbox;
+    @include justify-content(space-between);
+    background-color: rgba(250, 250, 250, .3);
+    padding: .6em .25em;
+    z-index: 2;
+    .field {
+      margin: 0 .5rem;
+      input, button {
+      }
+      input {
+        @include border-radius(0);
+      }
+      button {
+        &.bibutton {
+          width: 100%!important;
+        }
+      }
+    }
+  }
+}
+

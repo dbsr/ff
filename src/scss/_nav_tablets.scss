@@ -1,0 +1,29 @@
+@include respond-to(tablets) {
+  .nav-container {
+    .portal-nav {
+      .nav-items {
+        width: 90%;
+        @include flex-flow(column);
+        @include align-items(center);
+        .logo {
+          width: 40%;
+          margin-top: 1em;
+        }
+        .items {
+          padding: 1em 0;
+          width: 100%;
+          .item {
+            color: white;
+            text-transform: uppercase;
+          }
+        }
+        .mobile-items {
+          display: none;
+        }
+      }
+    }
+    .portal-nav-sub-container {
+      display: none;
+    }
+  }
+}

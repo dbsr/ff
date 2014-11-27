@@ -1,0 +1,21 @@
+
+
+.form-page {
+  width: 100%;
+  position:relative;
+  .logo {
+    width: 70%;
+    max-width: 480px;
+  }
+  .back-link-bi {
+    text-align: center;
+  }
+  iframe {
+    position: relative;
+    margin-left: -25px;
+    @include respond-to(mobile) {
+      height: 5000px;
+      overflow-y: hidden;
+    }
+  }
+}

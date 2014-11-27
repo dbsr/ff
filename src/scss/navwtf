@@ -1,0 +1,211 @@
+.nav-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+  .portal-nav {
+    position: relative;
+    width: 100%;
+    position: relative;
+    @include respond-to(handhelds) {
+    }
+    .nav-items {
+      display: inline-block;
+      .logo {
+        display: inline-block;
+        width: 50%;
+        img {
+          width: 100%;
+        }
+      }
+      .items {
+        display: none;
+      }
+      .mobile-menu{
+        color: white!important;
+        display: inline-block;
+        float: right;
+        position: absolute;
+        height: 3em;
+        top: 30%;
+        right: 2%;
+        opacity: .95;
+        i {
+          font-size: 1.2em;
+          line-height: 1.4em;
+          color: white;
+        }
+        .mobile-items {
+          background: $color_homepage_secondary;
+          position: absolute;
+          display: inline-block;
+          right: .35em;
+          top: 3.5em;
+          text-align: center;
+
+          .header {
+            width: 100%;
+            padding: .25em;
+            background: $color_homepage;
+            margin-bottom: .5em;
+            .close {
+              position: absolute;
+              right: 0;
+              top: 0;
+              font-weight: normal;
+              cursor: pointer;
+
+            }
+          }
+          h3 {
+            color: white;
+          }
+
+          .item {
+            text-transform: uppercase;
+            display: block!important;
+            color: white;
+            padding: .5em;
+            position: relative;
+            width: 300px;
+            &:after {
+              display: block;
+              content: "";
+              width: 3em;
+              border-bottom: 1px solid white;
+              margin-left: auto;
+              margin-right: auto;
+              padding-bottom: .7em;
+            }
+            &:last-child {
+              &:after {
+                border-bottom: none;
+              }
+
+            }
+
+          }
+        }
+      }
+
+    }
+  }
+  .portal-nav-sub-container {
+    display: none;
+  }
+  @include respond-to(tablets) {
+    .portal-nav {
+      display: inline-block;
+      .nav-items {
+        width: 100%;
+        position: relative;
+        text-align: center;
+        .mobile-menu {
+          display: none;
+        }
+        .logo {
+          width: 25%;
+          padding: .25em 0;
+          display: block;
+          height: 100%;
+          position: relative;
+          vertical-align: middle;
+        }
+        .items {
+          display: block;
+          .item {
+            float: left;
+            text-align: center;
+            display: inline-block;
+            width: 20%;
+            text-transform: uppercase;
+            color: white;
+            padding: 2% 0;
+            &.active {
+              border-bottom-style: solid;
+              border-bottom-width: .35em;
+            }
+          }
+        }
+      }
+    }
+    .portal-nav-sub-container {
+      position: relative;
+      display: block;
+      background: $color_homepage_secondary;
+      .portal-nav-sub {
+        width: 100%;
+        text-align: center;
+        .item {
+          color: white;
+          text-transform: uppercase;
+          font-size: .9em;
+          margin-right: 2%;
+          padding: .5em 0;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+  @include respond-to(desktops) {
+    .portal-nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding: 0;
+      background: rgba(87, 88, 92, .9)!important;
+      .nav-items {
+
+        position: relative;
+        width: 100%;
+        .logo {
+          width: 20%;
+          position: absolute;
+          margin: 0;
+          left: -6.3%;
+          display: inline-block;
+          padding: 0;
+          img {
+          }
+        }
+        .items {
+          float: right;
+          right: 0;
+          width: 84%;
+          height: 4em;
+          display: inline-block;
+          position: relative;
+          .item {
+            height: 100%;
+            position: relative;
+            &.active {
+              span {
+                margin-top: -.23em;
+              }
+            }
+            span {
+              position: absolute;
+              text-transform: uppercase;
+              color: white;
+              top: 50%;
+              height: .9em;
+              font-size: .9em;
+              margin-top: -.45em;
+              left: 0;
+              right: 0;
+            }
+          }
+        }
+      }
+    }
+    .portal-nav-sub-container {
+      top: 4em;
+      position: fixed;
+    }
+
+  }
+}

@@ -1,0 +1,26 @@
+@include respond-to(desktops) {
+  .container {
+    display: none;
+    margin: 0 15%;
+    margin-bottom: 2%;
+    .splash {
+      .logo {
+        .logo-caption {
+          p {
+            font-size: 1.1em;
+          }
+        }
+      }
+      .portals {
+        margin-top: 1%;
+        width: 86%;
+        margin-left: auto;
+        .portal-buttons {
+          .portal-button {
+            padding: 1% 0;
+          }
+        }
+      }
+    }
+  }
+}

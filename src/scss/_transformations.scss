@@ -1,0 +1,14 @@
+@mixin buttonPointingDown($tipWidth, $tipHeight, $tipColour) {
+  &:before {
+    display: inline-block;
+    pointer-events: none;
+    position: absolute;
+    content: '';
+    left: calc(50% - #{$tipWidth});
+    border-style: solid;
+    bottom: -$tipHeight;
+    @include apply_browser_prefixes(transition-property, bottom);
+    border-width: $tipHeight $tipWidth 0 $tipWidth;
+    border-color: $tipColour transparent transparent transparent;
+  }
+}

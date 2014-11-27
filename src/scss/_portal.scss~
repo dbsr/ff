@@ -1,0 +1,287 @@
+strong {
+  font-family: 'source_sans_semibold', sans-serif;
+  font-weight: bold;
+}
+.top-section {
+  @include flexbox;
+  @include justify-content(space-around);
+  @include flex-flow(column);
+  background-image: url(/images/test2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 70%;
+  overflow: hidden;
+  z-index: 1;
+  padding-top: 8%;
+  .header {
+    margin-left: 15%;
+    text-shadow: rgb(0, 0, 0) 0px 1px 1px;
+    color: white;
+    p {
+      font-size: 1.6em;
+      margin-bottom: .5em;
+    }
+
+    ul {
+      list-style: none;
+      padding:0;
+      margin:0;
+      padding-left: 2%;
+    }
+
+    li { 
+      padding-left: 1em; 
+      text-indent: -.9rem;
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    li:before {
+      font-family: "Icons";
+      content: "\f105";
+      font-size: 1.2rem;
+      float: left;
+      padding-right: 1em;
+      padding-top: .3em;
+    }
+  }
+  .scroll-buttons {
+    margin-left: auto;
+    margin-right: 15%;
+  }
+}
+
+
+
+
+.portal {
+  .section {
+    margin: 1rem 0;
+    @include flexbox;
+    margin-left: auto; 
+    margin-right: auto;
+    text-align: justify;
+    h1 {
+      text-align: left;
+      margin: 1rem 0 2rem 0;
+    }
+    article {
+
+      @include flexbox;
+      @include flex-flow(column);
+      .text {
+      }
+      &.investors {
+        h1, a, li:before {
+          color: $color_investors;
+        }
+      }
+      &.universities {
+        h1, a, li:before{
+          color: $color_universities;
+        }
+      }
+      &.highschools {
+        h1, a, li:before{
+          color: $color_highschools;
+        }
+      }
+      &.students {
+        h1, a, li:before{
+          color: $color_students;
+        }
+      }
+      .portals {
+        @include flexbox;
+        @include flex-flow(column);
+        .row {
+          @include flexbox;
+          @include flex-flow(row);
+          @include respond-to(handhelds) {
+            @include flex-flow(column);
+          }
+          @include justify-content(space-between);
+          text-align: left;
+          width: 100%;
+          .item {
+            width: 45%; 
+            &:first-child {
+              margin-right: auto;
+            }
+            img {
+              float: left;
+              width: 3rem;
+              padding-top: 2rem;
+              padding-right: .25rem;
+            }
+            @include respond-to(tablets) {
+              width: 45%;
+              img {
+                width: 5rem;
+                padding-top: 2rem;
+              }
+            }
+            @include respond-to(handhelds) {
+              width: 90%;
+              margin-left: auto;
+              margin-right: auto;
+              h1 {
+                text-align: center;
+              }
+              img {
+                padding-top: 3rem;
+                width: 10rem;
+              }
+            }
+          }
+        }
+      }
+    }
+    aside {
+      .push {
+        color: rgba(250, 250, 250, 0);
+        visibility: hidden;
+      }
+      .content {
+        margin-top: .5rem;
+        p {
+          font-size: .8em;
+          strong {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    @include respond-to(desktops) {
+      @include flex-flow(row);
+      @include justify-content(space-between);
+      width: 70%;
+      article {
+
+        ul {
+          list-style: none;
+          padding: 20px;
+          margin:0;
+        }
+
+        li { 
+          padding-left: 1em; 
+          text-indent: -.9rem;
+        }
+
+        li:before {
+          font-family: "Icons";
+          content: "\f105";
+          font-size: .9rem;
+          float: left;
+          padding-right: 1em;
+          padding-top: .1em;
+        }
+
+
+        width: 70%;
+        &.middle {
+          width: 100%;
+          @include flexbox;
+          @include justify-content(space-around);
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+      aside {
+        width: 20%;
+        p {
+          font-size: .8rem;
+        }
+      }
+    }
+    @include respond-to(tablets) {
+      @include justify-content(space-between);
+      @include flex-flow(row);
+      ul {
+        list-style: none;
+        padding:0;
+        margin:0;
+      }
+
+      li { 
+        padding-left: 2em; 
+        text-indent: -.9rem;
+      }
+
+      li:before {
+        font-family: "Icons";
+        content: "\f105";
+        font-size: .9rem;
+        float: left;
+        padding-right: 1em;
+        padding-top: .1em;
+      }
+
+
+      width: 90%;
+      article {
+        width: 65%;
+        &.middle {
+          width: 70%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+      aside {
+        width: 25%;
+      }
+    }
+    @include respond-to(handhelds) {
+      @include flex-flow(column);
+      @include justify-content(center);
+      width: 90%;
+      article {
+        width: 100%;
+        ul {
+          list-style-type: disc;
+          padding-left: 1em;
+          li {
+            &:after {
+              content: "";
+            }
+          }
+        }
+
+        h1 {
+          font-size: 4rem;
+          font-family: 'source_sans_proregular', sans-serif;
+        }
+        @include order(1);
+        &.middle {
+          width: 90%;
+        }
+      }
+      aside {
+        display: none;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        @include order(2);
+      }
+    }
+  }
+}
+
+.divider-buttons {
+  @include flexbox;
+  @include justify-content(flex-end);
+  .bibutton {
+    width: 35%;
+  }
+  &.middle {
+    @include justify-content(center);
+  }
+}
+
+#content-one, #content-two, #content-three, #content-four {
+  margin-top: -100px;
+  padding-top: 100px;
+}

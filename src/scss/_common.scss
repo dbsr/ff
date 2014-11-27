@@ -1,0 +1,201 @@
+// palette
+$color_universities: #389946;
+$color_universities_secondary: #85c98d;
+$color_investors: #3c65b0;
+$color_investors_secondary: #749cd6;
+$color_highschools: #f27f21;
+$color_highschools_secondary: #f7b381;
+$color_students: #4d2f6f;
+$color_students_secondary: #a799bc;
+$color_homepage: rgb(69, 69, 69);
+$color_homepage_secondary: rgb(85, 85, 85);
+$color_base_white: rgb(250, 250, 250);
+$color_base_black: rgb(66, 66, 66);
+$color_logocitrus: #efb401;
+$color_logocitrus: #F9C412;
+$color_logocitrus_secondary: rgb(246, 218, 62);
+$color_greywolf: rgb(120, 120, 120);
+$color_greywolf_secondary: rgb(150, 150, 150);
+$color_homepage: rgb(87, 88, 92);
+$color_homepage_secondary: rgb(138, 140, 145);
+$color_font: rgb(88, 88, 88);
+$color_link: #008cba;
+
+// images
+$img-students-1920: url(/images/students-1920.jpg);
+$img-students-1024: url(/images/students-1024.jpg);
+$img-students-540: url(/images/students-540.jpg);
+$img-students: (($img-students-1920, $img-students-1024, $img-students-540), top);
+$img-girl-in-park-1920: url(/images/girl-in-park._1920px.jpg);
+$img-girl-in-park-1024: url(/images/girl-in-park._1024px.jpg);
+$img-girl-in-park-540: url(/images/girl-in-park._540px.jpg);
+$img-girl-in-park: (($img-girl-in-park-1920, $img-girl-in-park-1024, $img-girl-in-park-540), left center);
+$img-engineer-1920: url(/images/engineer-1920.jpg);
+$img-engineer-1024: url(/images/engineer-1024.jpg);
+$img-engineer-540: url(/images/engineer-540.jpg);
+$img-engineer: (($img-engineer-1920, $img-engineer-1024, $img-engineer-540), right bottom);
+$img-library-1920: url(/images/happy-graduate-top._1920px.jpg);
+$img-library-1024: url(/images/happy-graduate-top._1024px.jpg);
+$img-library-540: url(/images/happy-graduate-top._540px.jpg);
+$img-library: (($img-library-1920, $img-library-1024, $img-library-540), center top);
+$img-doctor-1920: url(/images/doctor-1920.jpg);
+$img-doctor-1024: url(/images/doctor-1024.jpg);
+$img-doctor-540: url(/images/doctor-540.jpg);
+$img-doctor: (($img-doctor-1920, $img-doctor-1024, $img-doctor-540), center top);
+$img-graduation-1920: url(/images/female-grad-park._1920px.jpg);
+$img-graduation-1024: url(/images/female-grad-park._1024px.jpg);
+$img-graduation-540: url(/images/female-grad-park._540px.jpg);
+$img-graduation: (($img-graduation-1920, $img-graduation-1024, $img-graduation-540), center center);
+$img-skyline-1920: url(/images/Skyline._1920px.jpg);
+$img-skyline-1024: url(/images/Skyline._1024px.jpg);
+$img-skyline-540: url(/images/Skyline._540px.jpg);
+$img-skyline: (($img-skyline-1920, $img-skyline-1024, $img-skyline-540), center);
+$img-teacher-1920: url(/images/teacher-top._1920px.jpg);
+$img-teacher-1024: url(/images/teacher-top._1024px.jpg);
+$img-teacher-540: url(/images/teacher-top._540px.jpg);
+$img-teacher: (($img-teacher-1920, $img-teacher-1024, $img-teacher-540), center top);
+$img-smiling-1920: url(/images/investor-for-bushes-top._1920px.jpg);
+$img-smiling-1024: url(/images/investor-for-bushes-top._1024px.jpg);
+$img-smiling-540: url(/images/investor-for-bushes-top._540px.jpg);
+$img-smiling: (($img-smiling-1920, $img-smiling-1024, $img-smiling-540), center top);
+$img-girl-in-park-top-1920: url(/images/girl-in-park-top._1920px.jpg);
+$img-girl-in-park-top-1024: url(/images/girl-in-park-top._1024px.jpg);
+$img-girl-in-park-top-540: url(/images/girl-in-park-top._540px.jpg);
+$img-girl-in-park-top: (($img-girl-in-park-top-1920, $img-girl-in-park-top-1024, $img-girl-in-park-top-540), center);
+$img-happy-students-1920: url(/images/happy-students._1920px.jpg);
+$img-happy-students-1024: url(/images/happy-students._1024px.jpg);
+$img-happy-students-540: url(/images/happy-students._540px.jpg);
+$img-happy-students: (($img-happy-students-1920, $img-happy-students-1024, $img-happy-students-540), center);
+$img-sun-1920: url(/images/Sky._1920px.jpg);
+$img-sun-1024: url(/images/Sky._1024px.jpg);
+$img-sun-540: url(/images/Sky._540px.jpg);
+$img-sun: (($img-sun-1920, $img-sun-1024, $img-sun-540), center top);
+
+
+
+$bg-img-list: (
+investors, ($img-smiling, $img-graduation, $img-doctor, $img-engineer)
+), (
+universities, ($img-library, $img-girl-in-park, $img-graduation, $img-doctor)
+), (
+highschools, ($img-teacher, $img-happy-students, $img-graduation, $img-doctor)
+), (
+students, ($img-girl-in-park-top, $img-library, $img-engineer, $img-graduation)
+), (
+homepage, ($img-skyline, $img-girl-in-park, $img-girl-in-park, $img-library)
+), (
+about, ($img-sun, $img-girl-in-park)
+);
+
+@for $i from 1 through length($bg-img-list) {
+  $bg-img: nth($bg-img-list, $i);
+  $portal: nth($bg-img, 1);
+  $images: nth($bg-img, 2);
+  @for $j from 1 through length($images) {
+    $image: nth(nth($images, $j), 1);
+    $position: nth(nth($images, $j), 2);
+    .#{$portal}-bg-img-#{$j} {
+      background-image: nth($image, 3);
+      background-position: $position;
+    }
+    @media only screen and (min-width: 540px) and (max-width: 1023px) {
+      .#{$portal}-bg-img-#{$j} {
+        background-image: nth($image, 2);
+        background-position: $position;
+      }
+    }
+    @media only screen and (min-width: 1024px) {
+      .#{$portal}-bg-img-#{$j} {
+        background-image: nth($image, 1);
+        background-position: $position;
+      }
+    }
+  }
+}
+
+@each $portal in investors students highschools universities homepage {
+  @for $i from 1 through 3 {
+    .#{$portal}-aside-img-#{$i} {
+      background-image: url(/images/#{$portal}#{$i}.png);
+    }
+  }
+}
+
+
+// font sizes
+$portal-content-font-size: 1.1rem;
+$portal-content-font-size-heading: $portal-content-font-size * 1.7;
+
+// helper classes
+$selectors: investors, students, highschools, universities, greywolf, logocitrus, homepage, about;
+$primary_colors: $color_investors, $color_students, $color_highschools, $color_universities, $color_greywolf, $color_logocitrus, $color_homepage, $color_logocitrus;
+$secondary_colors: $color_investors_secondary, $color_students_secondary, $color_highschools_secondary, $color_universities_secondary, $color_greywolf_secondary, $color_logocitrus_secondary, $color_homepage_secondary, $color_logocitrus_secondary;
+@for $i from 1 through length($selectors) {
+  $portal: nth($selectors, $i);
+  $portal-color: nth($primary_colors, $i);
+  $portal-color-secondary: nth($secondary_colors, $i);
+  .#{$portal} {
+    &.hover-background-color-secondary {
+      &:hover {
+        background-color: $portal-color-secondary;
+      }
+    }
+    &.hover-background-color {
+      &:hover {
+        background-color: $portal-color;
+      }
+    }
+    @each $selector in (background, color, border-color) {
+      &.#{$selector} {
+        #{$selector}: $portal-color;
+      }
+      &.seconday {
+        &.#{$selector} {
+          #{$selector}: $portal-color-secondary;
+        }
+      }
+    }
+  }
+}
+
+$vendors: -webkit, -moz, -o;
+
+@mixin apply_browser_prefixes($attr, $val) {
+  @each $prefix in $vendors {
+    #{$prefix}-#{$attr}: $val;
+  }
+  #{$attr}: $val;
+}
+
+@mixin dbg_border($i) {
+  $colors: red green blue yellow pink purple orange;
+  border: 1px dotted nth($colors, $i);
+}
+
+// icons
+i.icon.facebook:before {
+  content: "\f09a";
+}
+i.icon.google.plus:before {
+  content: "\f0d5";
+}
+i.icon.twitter:before {
+  content: "\f099";
+}
+
+i.icon.linkedin:before {
+  content: "\f0e1";
+}
+i.icon.double.angle.down:before {
+  content: "\f103";
+}
+
+@mixin background-linear-gradient($direction: bottom, $startColor: #3C3C3C, $endColor: #999999) {
+    background-color: $startColor;
+    background-image: -webkit-linear-gradient($direction, $startColor, $endColor);
+    background-image:    -moz-linear-gradient($direction, $startColor, $endColor);
+    background-image:     -ms-linear-gradient($direction, $startColor, $endColor);
+    background-image:      -o-linear-gradient($direction, $startColor, $endColor);
+    background-image:         linear-gradient($direction, $startColor, $endColor);
+    filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');
+}

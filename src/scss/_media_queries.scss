@@ -1,0 +1,82 @@
+$break-small: 540px;
+$break-large: 1024px;
+
+@mixin respond-to($media) {
+  @if $media == mobile {
+    @media only screen and (max-width: $break-small) {
+      @content;
+    }
+  }
+  @else if $media == handhelds {
+    @media only screen and (max-width: $break-small) {
+      @content;
+    }
+    @media only screen and (max-width: $break-large - 1) and (orientation: portrait) {
+      @content;
+    }
+  }
+  @else if $media == tablets {
+    @media only screen and (min-width: $break-small + 1) {
+      @content;
+    }
+  }
+  @else {
+    @media only screen and (min-width: $break-large + 1) {
+      @content;
+    }
+    .no-flexbox {
+      @content;
+    }
+  }
+}
+
+@mixin respond-to-all($attr, $desktops, $tablets, $handhelds) {
+  @include respond-to(desktops) {
+    #{$attr}: $desktops;
+  }
+  @include respond-to(tablets) {
+    #{$attr}: $tablets;
+  }
+  @include respond-to(handhelds) {
+    #{$attr}: $handhelds;
+  }
+}
+
+
+
+@mixin media-query-dynamic-size($attr, $base_size, $min, $max, $num_steps) {
+  $cur_step: $min;
+  $step_size: ($max - $min) / $num_steps;
+  $size_multiplier: ($min + $step_size) / $min;
+  $cur_size: $base_size;
+  @while $cur_step < $max {
+    @media only screen and (min-width: $cur_step) {
+      #{$attr}: $cur_size;
+    }
+    $cur_step: $cur_step * $size_multiplier;
+    $cur_size: $cur_size * $size_multiplier;
+  }
+}
+
+
+@mixin dynamic-query($attr, $val, $start, $end, $n) {
+  $cur: $start;
+  $step: ($end - $start) / $n;
+  @while $cur < $end {
+    @media only screen and (min-width: $cur) {
+      #{$attr}: ($cur / $start) * $val;
+    }
+    $cur: $cur + $step;
+  }
+}
+
+
+
+@mixin respond-to-custom($attr, $vars...) {
+  @each $var in $vars {
+
+  }
+
+}
+
+

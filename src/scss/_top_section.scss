@@ -1,0 +1,14 @@
+.top-section {
+  @include background-size(100%, auto);
+  background-repeat: no-repeat;
+  height: 0;
+  position: relative;
+  .top-section-content {
+    position: absolute;
+    top: 20%;
+    border: 10px solid green;
+    .header {
+
+    }
+  }
+}

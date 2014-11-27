@@ -1,0 +1,50 @@
+.bibutton {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 1;
+  font-weight: bold;
+  font-style: normal;
+  font-size: .9em;
+  text-align: center;
+  border-radius: 0;
+  color: white;
+  @include transition(opacity, 300ms, ease-out);
+  &:hover {
+    opacity: .8;
+  }
+  font-family: 'source_sans_prolight', sans-serif;
+  font-weight: normal!important;
+  p {
+    margin: 0;
+    font-family: 'source_sans_prolight', sans-serif;
+    padding: 0;
+  }
+  @include flexbox;
+  width: 15em;
+  height: 3em;
+  vertical-align: middle;
+  &.labeled {
+    @include flex-direction(column);
+    @include align-content(center);
+    @include align-items(center);
+    text-decoration: none;
+    color: white!important;
+    padding: 0.6em 0 0.4em 0;
+    i {
+      font-weight: normal!important;
+      line-height: 1;
+      width: 100%;
+      margin-bottom: -.25em;
+      padding: 0;
+    }
+
+  }
+  &.scrolldown {
+    @include scrollDown(hover);
+  }
+}
