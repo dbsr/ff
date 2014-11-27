@@ -1,0 +1,59 @@
+include modules/nav
+include modules/footer
+include modules/faq
+include modules/formModal
+- portal = 'about'
+.portal(ng-controller='PortalCtrl', data-cur-portal=portal)
+  +nav(portal)
+  +formModal()
+  aside(social-follow)
+  .top-section.about-top-section#content-one(class=portal + "-bg-img-1")
+    .container
+      .header-index.about
+        h2(dynamic-size, ng-bind="{{createQuery('content_top_one')}}")
+        h2(dynamic-size, ng-bind="{{createQuery('content_top_two')}}")
+  .section.container
+    article.article-container(class=portal)
+      .text(btf-markdown="{{createQuery('content_one')}}")
+    aside.share-container
+      h1.push _
+      .share
+        h4
+          |share to help us reach our audience
+        ul(ng-social-buttons, data-title="'Brighter Investment'", data-image="'http://www.brighterinvestment.com/images/brighter_investment_og.jpg'", data-url='$location.absUrl()', data-description="'Brighter Investment: This new fund opens up education to the poor and shares the financial gains with its investors. - In exchange for a percentage of their income Brighter Investment helps talented students in developing countries to get a degree. Because they value a student’s future potential instead of their current financial situation, Brighter Investment is able to help students that banks will not. Read more on www.brighterinvestment.com'")
+          li.ng-social-facebook-feed(ng-social-facebook-feed)
+            i.icon.facebook(alt='share on facebook', title='share on facebook!')
+          li.ng-social-twitter
+            i.icon.twitter(alt='share on twitter', title='share on twitter!!')
+          li.ng-social-google-plus
+            i.icon.google.plus(alt='share on google plus', title='share on google plus!')
+          li.ng-social-linkedin
+            i.icon.linkedin(alt='share on linkedin', title='share on linkedin!')
+          li
+            a(ng-href='mailto:?subject=Brighter%20Investment:%20This%20new%20fund%20makes%20higher%20education%20available%20to%20the%20poor%20and%20shares%20the%20financial%20gains%20with%20its%20investors&body=This%20new%20fund%20opens%20up%20education%20to%20the%20poor%20and%20shares%20the%20financial%20gains%20with%20its%20investors.%20-%20In%20exchange%20for%20a%20percentage%20of%20their%20income%20Brighter%20Investment%20helps%20talented%20students%20in%20developing%20countries%20to%20get%20a%20degree.%20Because%20they%20value%20a%20student’s%20future%20potential%20instead%20of%20their%20current%20financial%20situation,%20Brighter%20Investment%20is%20able%20to%20help%20students%20that%20banks%20will%20not.%20Read%20more%20on%20www.brighterinvestment.com', target='_blank')
+              i.icon.mail
+  .divider
+    .divider-img(class=portal + "-bg-img-2")
+  .anchor-scroll#content-two
+  .anchor-scroll#content-three
+  .container#about
+    .faq
+      +faq()
+    .contact
+      h1.header-section.color.logocitrus Contact
+      .part
+        .header#hax BRIGHTER INVESTMENT
+        p 170-422 Richards Street
+        p Vancouver BC, V6B 2Z4
+        p Canada
+        p
+          a.mailto(href='mailto:contact@brighterinvestment.com') contact@brighterinvestment.com
+      .part
+        .header INVESTOR INQUIRIES
+        p 
+          a.mailto(href='mailto:inquiries@brighterinvestment.com') inquiries@brighterinvestment.com
+      .part
+        .header WEB ADMIN
+        p 
+          a.mailto(href='mailto:webmaster@brighterinvestment.com') webmaster@brighterinvestment.com
++footer('index-footer-background')

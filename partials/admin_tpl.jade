@@ -1,0 +1,39 @@
+.ui.segment
+  .ui.form.segment
+    .field
+      label CREATE PAGE
+      input(type='text', placeholder='PAGE NAME', ng-model='pageName')
+    button.ui.button(ng-click='createPage(pageName)') CREATE
+  .ui.segment(ng-show='pages.length')
+    .ui.header EDIT EXISTING PAGE_DATA:
+    .ui.menu.horizontal.link
+      a.item(ng-repeat='page in pages', ng-click='editPage(page._id)') {{page.page}}
+.ui.segment(ng-show='activePage')
+  .ui.header {{activePage.page}}
+  .ui.form.segment
+    .ui.labeled.icon.button(ng-click='removePage(activePage._id)')
+      i.icon.remove
+      |REMOVE PAGE
+  .ui.form.segment(ng-show='activePage.keys', ng-repeat='key in activePage.keys')
+    .field
+      label key
+      input(type='text', ng-model='key.key')
+    .field
+      label value
+      textarea(ng-model='key.val')
+    .ui.labeled.icon.button(ng-click='removeKey(key.key )')
+      i.icon.remove
+      |REMOVE KEY
+    .ui.labeled.icon.button(ng-click='updatePage()')
+      i.icon.update
+      |UPDATE KEY
+  .ui.form.segment
+    .ui.two.fields
+      .field
+        label key
+        input(type='text', ng-model='activePage.newKey')
+      .field
+        label value
+        textarea(ng-model='activePage.newVal')
+    .ui.button(ng-click='addKey()')
+      |ADD KEY

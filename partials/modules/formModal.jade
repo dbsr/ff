@@ -1,0 +1,17 @@
+mixin formModal()
+  .form-modal(ng-controller='FormModalCtrl')
+    .form-modal-container
+      .form-modal-background(ng-show='$root.form.showModal')
+        article.form-modal-modal(ng-show='$root.form.showModal')
+          .header
+            .logo
+              img(src='/images/brighter_investment.png', alt='Brighter Investment')
+            .controls
+              a.control(ng-click='showModal = false', ng-href='{{$root.form.pageUrl}}', target='_blank')
+                i.icon.share
+              a.control(ng-click='toggleModal()')
+                i.icon.close
+           .form
+             iframe(height="{{$root.form.formHeight}}", frameBorder="0", ng-src="{{$root.form.formUrl}}")
+    .undo.background.logocitrus.animated.undo(ng-show='$root.form.showUndo', ng-click='toggleModal()', ng-class='$root.form.showUndo ? "fadeInRightt" : "fadeOutRight"')
+      |BACK TO FORM

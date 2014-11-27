@@ -1,0 +1,80 @@
+include nav
+include footer
+include formModal
+mixin custom_template(portal, formUrl, formHeight)
+  +formModal()
+  aside(social-follow)
+  .portal(ng-controller='PortalCtrl', data-cur-portal='custom')
+    +nav(portal)
+    #content-one.anchor-scroll
+    .top-section.portal-top-section(class=portal + "-bg-img-1")
+      .container
+        .top-section-content
+          .header(ng-bind="{{createQuery('content_top_header')}}")
+          .top-section-list(btf-markdown="{{createQuery('content_top_bullets')}}")
+        .bibutton.scrolldown.background.labeled(top-button, , smooth-scroll-jquery, target='content-four', class=portal, data-speed='10', offset="450", d-size, base-size='1024', base-num='1', style-attribute='font-size', base-unit='em', min-size=0.6 max-size=1, angulartics-on="click", angulartics-category="scrollButton", angulartics-label="topSection", ng-if="button_four")
+          div(ng-bind="{{createQuery('button_four')}}")
+          i.icon.double.angle.down
+    .section.container
+      article.article-container(class=portal)
+        .text(btf-markdown="{{createQuery('content_one')}}")
+        .divider-buttons
+          .bibutton.scrolldown.labeled.greywolf.background(smooth-scroll-jquery, target='content-two', offset="150", angulartics-on="click", angulartics-category="scrollButton_content1", angulartics-label="button_one")
+            div(ng-bind="{{createQuery('button_four')}}")
+            i.icon.angle.down
+          .bibutton.scrolldown.labeled.background(smooth-scroll-jquery, target='content-four', class=portal, offset="450",  angulartics-on="click", angulartics-category="scrollButton_content1", angulartics-label="button_two")
+            div(ng-bind="{{createQuery('button_two')}}")
+            i.icon.double.angle.down
+      aside
+        h1.push _
+        .item
+          img(src='/images/{{curPortal}}1.png')
+          .content(btf-markdown="{{createQuery('aside_one')}}")
+    .divider
+      .divider-img(class=portal + "-bg-img-2")
+    #content-two.anchor-scroll
+    .section.container
+      article.article-container.middle(class=portal)
+        .text(btf-markdown="{{createQuery('content_two_a')}}")
+        .pportals
+          .rrow(ng-repeat="section in pageData[curPortal + '_content_two_b']")
+            .item(ng-repeat='item in section')
+              img(ng-if="item.icon.indexOf('6') === -1", src='/images/{{item.icon}}.png')
+              img(ng-if="item.icon.indexOf('6') !== -1", src='/images/brighter-investment-icon.png')
+              .text(btf-markdown='item.markdown')
+        .divider-buttons.middle
+          .bibutton.scrolldown.labeled.background(smooth-scroll, target='content-four', class=portal, offset="450", angulartics-on="click", angulartics-category="scrollButton_content2", angulartics-label="button_one")
+            div(ng-bind="{{createQuery('button_two')}}")
+            |#{"{{pageData." + portal + "_button_four}}"}
+            i.icon.double.angle.down
+          .bibutton.scrolldown.labeled.greywolf.background(smooth-scroll-jquery, target='content-three', offset="50", angulartics-on="click", angulartics-category="scrollButton_content2", angulartics-label="button_two")
+            div(ng-bind="{{createQuery('button_three')}}")
+            i.icon.angle.down
+    .divider
+      .divider-img(class=portal + "-bg-img-3")
+    #content-three.anchor-scroll
+    .section.container
+      article.article-container(class=portal)
+        .text(btf-markdown="{{createQuery('content_three')}}")
+        .divider-buttons.left-side
+          a.bibutton.labeled.background.greywolf(ng-href='mailto:?subject=Brighter Investment&body=I would like to share this website: http://brighterinvestment.com', title='Share by email')
+            |Share with a contact
+            i.icon.mail
+          .bibutton.scrolldown.labeled.background(smooth-scroll-jquery, target='content-five', class=portal, angulartics-on="click", angulartics-category="scrollButton_content3", angulartics-label="button_one")
+            div(ng-bind="{{createQuery('button_four')}}")
+            i.icon.double.angle.down
+      aside
+        h1.push _
+        .item
+          img(src='/images/{{curPortal}}3.png')
+          .content(btf-markdown="{{createQuery('aside_three')}}")
+    .divider
+      .divider-img(class=portal + "-bg-img-4")
+    #content-four.anchor-scroll.form
+    .section.container
+      #content-four-nav
+      article#content-five(class=portal, ng-controller='PortalFormCtrl')
+        h1(ng-bind='{{createQuery("button_four")}}')
+        p(btf-markdown="{{createQuery('content_four')}}")
+        iframe(width="100%", height=formHeight, frameBorder="0", src=formUrl, style="margin-left: -20px!important; position=relative;")
+  +footer(portal, 'custom')

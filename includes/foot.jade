@@ -1,0 +1,58 @@
+// Google Analytics
+script(type='text/javascript').
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+   ga('create', 'UA-47681507-1', 'brighterinvestment.com');
+
+script(src='//code.jquery.com/jquery-1.11.0.min.js')
+script(src='/vendor/es5-shim/es5-shim.min.js')
+script(src='/vendor/showdown/compressed/showdown.js')
+script(src='/vendor/json3/lib/json3.min.js')
+script(src='/vendor/angular/angular.js')
+script(src='/vendor/angular-social/angular-social.js')
+script(src='/vendor/angular-animate/angular-animate.min.js')
+script(src='/vendor/angular-route/angular-route.min.js')
+script(src='/vendor/angular-sanitize/angular-sanitize.min.js')
+script(src='/vendor/angular-smoothscroll/app/scripts/angular-smooth-scroll.js')
+script(src='/vendor/angulartics/dist/angulartics.min.js')
+script(src='/vendor/angulartics/dist/angulartics-ga.min.js')
+script(src='/vendor/angulartics/dist/angulartics-google-analytics.min.js')
+script(type='text/javascript', src='/scripts/app.js')
+
+if 'dev' === process.env.NODE_ENV
+  script(src="http://" + process.env.HOST + ":35729/livereload.js?snipver=1" type="text/javascript")
+
+script.
+   $(function(){
+
+              var iFrames = $('iframe');
+
+              function iResize() {
+
+                  for (var i = 0, j = iFrames.length; i < j; i++) {
+                    iFrames[i].style.height = iFrames[i].contentWindow.document.body.offsetHeight + 'px';}
+                  }
+
+                  //if ($.browser.safari || $.browser.opera) { 
+                  if(false === true) {
+
+                     iFrames.load(function(){
+                         setTimeout(iResize, 0);
+                     });
+
+                     for (var i = 0, j = iFrames.length; i < j; i++) {
+                          var iSource = iFrames[i].src;
+                          iFrames[i].src = '';
+                          iFrames[i].src = iSource;
+                     }
+
+                  } else {
+                     iFrames.load(function() { 
+                         this.style.height = this.contentWindow.document.body.offsetHeight + 'px';
+                     });
+                  }
+                iResize();
+              });
+

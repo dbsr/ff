@@ -1,0 +1,12 @@
+html
+  include includes/head
+  body
+    form.ui.form.segment(action='/login', method='post')
+      .field
+        .label USERNAME
+        input(type='text', name='user')
+      .field
+        .label PASSWORD
+        input(type='password', name='password')
+      input.field.ui.red.button(type='submit', value='lolskie')
+    include includes/foot

@@ -1,0 +1,21 @@
+include share
+mixin post()
+  article.post#first-post(ng-controller='PostCtrl')
+    .top
+      .date(ng-bind='post.date')
+    h2.title(ng-bind='post.title_without_tags')
+    .content
+      img.post-picture(ng-src='{{post.image_url}}', ng-show='post.image_url')
+      b.introduction(btf-markdown='post.introduction_without_tags')
+      .body(btf-markdown='post.article_body')
+      .link
+        a(ng-href='{{post.url_on_website}}', ng-bind='post.url_on_website')
+    +share('post.title_without_tags', 'post.introduction_without_tags', 'post.url_on_website', 'post.image_url')
+    .navigation
+      a.prev(ng-href='{{prev}}', ng-show='prev')
+        i.icon.angle.left
+        | previous
+      a.next(ng-href='{{next}}', ng-show='next')
+        | next
+        i.icon.angle.right
+    #post.anchor-offset

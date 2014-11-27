@@ -1,0 +1,21 @@
+mixin nav(portal)
+  div.nav-container(ng-controller='PortalNavCtrl', data-cur-portal=portal)
+    nav.portal-nav.background.homepage
+      .container
+        .nav-items
+          a.logo(href='/', analytics-on="click", analytics-category="nav", analytics-label="home")
+            img(src='/images/brighter_investment_white.png', alt='Brighter Investment')
+          .items
+            a.item.border-color(ng-repeat='portal in nav.portals', ng-href='{{portal.href}}', ng-mouseenter='onMouseEnter($index, true)', ng-mouseleave='onMouseLeave($index)', class="{{portal.name}}", ng-class="portal.isCurrent || portal.isActive ? 'active': 'inactive'", ng-click='onMouseClick($index)', analytics-on="click", analytics-category="nav", analytics-label="{{portal.name}}")
+              span(ng-bind="portal.humanName")
+          i.mobile.mobile-item.icon.reorder(ng-click='toggleMobileMenu()', analytics-on="click", analytics-category="mobileNav", analytics-label="toggle")
+    ul.mobile.mobile-menu.background.greywolf-secondary(ng-show='mobileMenuActive', ng-class="mobileMenuActive? 'animated fadeInDownBig': ''")
+      .header 
+        i.icon.close(ng-click='toggleMobileMenu()')
+        h3 MENU
+      a.item(href='/', analytics-on="click", analytics-category="mobileNav", analytics-label="home") home
+      a.item(ng-repeat='portal in nav.portals', ng-href='{{portal.href}}' ng-bind='portal.humanName', analytics-on="click", analytics-category="mobileNav", analytics-label="{{portal.name}}")
+    .portal-nav-sub-container.animated(ng-repeat='portal in nav.portals', ng-show='portal.isActive', ng-class='{navFadeInDown: portal.isActive, navFadeOutUp: portal.isInactive}')
+      .container
+        nav.portal-nav-sub(dynamic-size, class=portal)
+          a.item(ng-repeat='target in portal.targets', href='{{target.hashHref}}', ng-bind='{{target.text}}', analytics-on="click", analytics-category="subNav", analytics-label="{{portal.name}}", id="{{$index - 1 === portals.length ? 'last' : ''}}")

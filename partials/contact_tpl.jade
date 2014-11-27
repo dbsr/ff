@@ -1,0 +1,43 @@
+include modules/nav
+include modules/footer
+include modules/faq
+- portal = 'about'
+.portal(ng-controller='PortalCtrl', data-cur-portal=portal)
+  +nav(portal)
+  .top-section(class=portal + "-bg-img-1")
+    .container
+      .top-section-content
+        .header(btf-markdown="{{createQuery('content_top')}}")
+  .section.container#content-one
+    article.article-container(class=portal)
+      .text(btf-markdown="{{createQuery('content_one')}}")
+      .divider-buttons
+        .bibutton.scrolldown.labeled.greywolf.background(smooth-scroll-jquery, target='content-two')
+          |Contact
+          i.icon.angle.down
+        .bibutton.scrolldown.labeled.greywolf.background(smooth-scroll-jquery, target='content-two')
+          |Frequently Asked Questionss
+          i.icon.angle.down
+
+  .divider
+    .divider-img(class=portal + "-bg-img-2")
+  .section.container.contact-portal#content-two
+    article#faq
+      +faq()
+    article#contact
+      .part
+        .header#hax BRIGHTER INVESTMENT
+        p 170-422 Richards Street
+        p Vancouver BC, V6B 2Z4
+        p Canada
+        p
+          a.mailto(href='mailto:contact@brighterinvestment.com') contact@brighterinvestment.com
+      .part
+        .header INVESTOR INQUIRIES
+        p 
+          a.mailto(href='mailto:inquiries@brighterinvestment.com') inquiries@brighterinvestment.com
+      .part
+        .header WEB ADMIN
+        p 
+          a.mailto(href='mailto:webmaster@brighterinvestment.com') webmaster@brighterinvestment.com
++footer('index-footer-background')

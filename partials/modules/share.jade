@@ -1,0 +1,18 @@
+mixin share(title, description, url, img_url)
+  ul.post-social-share(ng-social-buttons,
+    data-url=url
+    data-title=title
+    data-description=description
+    data-image=img_url || "'http://brighterinvestment.com/images/brighter_investment_og_logo.png'")
+   li(ng-social-facebook-feed)
+     i.icon.facebook(alt='share on facebook', title='share on facebook!')
+   li.ng-social-twitter
+     i.icon.twitter(alt='share on twitter', title='share on twitter!')
+   li.ng-social-google-plus
+     i.icon.google.plus(alt='share on google plus', title='share on google plus!')
+   li.ng-social-linkedin
+     i.icon.linkedin(alt='share on linkedin', title='share on linkedin!')
+   li
+     a(ng-href='mailto:?subject=Interesting+read&body={{post.url_on_website}}', target='_blank')
+       i.icon.mail
+

@@ -1,0 +1,18 @@
+.social-follow.background(ng-hide='doHide', ng-class='show ? "fadeIn" : "fadeOut"', class="{{klass}}")
+  .trigger.ic(ng-click='activate()', ng-hide='isActive', ng-class='!isActive ? "animated fadeInLeft" : "fadeOutRight"', angulartics-on="click", angulartics-category="socialSharePortal", angulartics-label="trigger")
+    .desktop FOLLOW US
+    i.tablet.icon.info
+  .items.animated(ng-show='isActive', ng-class='isActive ? "fadeInLeft" : ""')
+    a.close.ic(ng-click='close()')
+      i.icon.remove
+    a.ic(href='https://www.facebook.com/BrighterInvestment', target='_blank')
+      i.icon.facebook(alt='follow us on facebook', title='follow us on facebook!')
+    a.ic(href='https://plus.google.com/+BrighterinvestmentWebsite', target='_blank')
+      i.icon.google.plus(alt='follow us on google plus', title='follow us on google plus!')
+    a.ic(href='https://twitter.com/intent/user?screen_name=brighterinvest', target='_blank')
+      i.icon.twitter(alt='follow us on twitter', title='follow us on twitter!')
+    a.ic(href='https://www.linkedin.com/company/brighter-investment', target='_blank')
+      i.icon.linkedin(alt='follow us on linkedin', title='follow us on linkedin!')
+    a.ic(ng-href='/{{$root.curPortal}}/form/500/communication-manager/form-embed/newsletter_subscription/WR4XOmrTJ9ZV1HSCZDCCZRJRY1hXWvMdBw40pM68tttzqUefN7pBNnWSE4apRPNDGCNUC1C6YrkGw9gBMKeWUex5WdNn95ah2tkd')
+      i.icon.mail
+

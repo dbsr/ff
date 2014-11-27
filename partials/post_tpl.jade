@@ -1,0 +1,7 @@
+article
+  h1.title(ng-bind='post.title_without_tags')
+  .body
+    .introduction(ng-bind-html='post.introduction')
+      .content(ng-bind-html='post.article-body')
+  h4 {{post.wtf}}
+  h4 {{post.wtf2}}

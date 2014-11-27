@@ -1,0 +1,29 @@
+mixin nav(portal)
+  div.nav-container(ng-controller='portalNavCtrl')
+    nav.portal-nav.background(class=portal)
+      a.item.logo
+        img(src='/images/brighter_investment_white.png', alt='Brighter Investment')
+      .portals
+        a.item(ng-repeat='portal in nav.portals', href='/{{portal.href}}', ng-mouseenter='onMouseEnter($index, true)', ng-mouseleave='onMouseLeave($index)') {{portal.text}}
+      .social
+        a.item
+          i.icon.facebook
+        a.item
+          i.icon.linkedin
+        a.item
+          i.icon.twitter
+    nav.portal-nav-sub.background.animated.secondary(ng-repeat='portal in nav.portals', class=portal, ng-mouseenter='onMouseEnter($index)', ng-mouseleave='onMouseLeave($index)', ng-show='portal.isActive', ng-class='{"customFadeInDown": portal.isActive, "fadeOutUp": !portal.isActive}')
+      a.item(ng-if='portal.href === curPortal', smoothscroll, ng-repeat='target in portal.targets', target='target.id') {{target.text}}
+      a.item(ng-if='portal.href !== curPortal', ng-repeat='target in portal.targets', href='{{createHashHref(portal.href, target.id)}}') {{target.text}}
+  .top-section
+    .header
+      h1 A Brighter Investment
+      h3 Annual return of 12%
+      h3 Low volatily
+      h3 Helpt to alleviate poverty
+//    form.ui.form
+//      each field in [{name: 'First name', type: 'text'}, {name: 'Last name', type: 'text'}, {name: 'Email address', type: 'email'}]
+//        .field
+//          input(type=field.type, placeholder=field.name)
+//      .field
+//        button.divider.button.background(class=portal) Receive the full prospectus

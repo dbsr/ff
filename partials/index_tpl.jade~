@@ -1,0 +1,33 @@
+include modules/footer
+.page(do-flexie)
+  .container
+    .splash(data-ng-controller='IndexPortalsCtrl')
+      .logo
+        img(src='/images/brighter_investment.png', alt='Brighter Investment Logo')
+        .ui.basic.segment.logo-caption(data-btf-markdown='pageData.index_heading_logo_caption')
+      .portals
+        .portal-buttons
+          a.button.portal-button.background(data-ng-repeat='portal in portals',
+            class='{{portal.klass}}',
+            href='{{portal.href}}',
+            data-ng-mouseenter='portal.onMouseEnter()',
+            data-ng-mouseleave='portal.onMouseLeave()',
+            data-ng-bind='portal.name',
+            data-ng-class='activePortal && activePortal !== portal.name ? "inactive": ""')
+        .portal-captions
+          .ui.message.border-color.portal-caption(data-ng-repeat='portal in portals',
+            class='{{portal.klass}}',
+            hef='{{portal.href}}',
+            data-ng-show='activePortal === portal.name',
+            data-ng-class='activePortal === portal.name && !portal.force ? "animated fadeInDown" : ""',
+            data-btf-markdown='pageData.index_heading_portals_{{portal.klass}}_caption')
+  .divider
+    .bibutton.background.logocitrus.scrolldown.labeled(data-smooth-scroll, target='brighter-news')
+      | TO BRIGHTER NEWS  
+      i.icon.angle.down
+    .divider-img.index-bg-img-1
+  .container
+    .news#brighter-news
+      h1 Brighter News
+      p Under construction, please check back soon!
++footer('index-footer-background')

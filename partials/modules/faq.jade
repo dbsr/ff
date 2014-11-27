@@ -1,0 +1,8 @@
+mixin faq()
+  #faq(ng-controller='FaqCtrl')
+    h1.header-section.color.logocitrus FAQ
+    .item(ng-repeat='(key, item) in items', ng-click='activate(key)')
+      .question
+        i.icon.angle(ng-class='item.active ? "down active" : "right"')
+        .txt(ng-bind='item.question')
+      .txt.answer(ng-bind='item.answer', ng-show='item.active')

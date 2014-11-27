@@ -1,0 +1,44 @@
+include modules/footer
+include modules/nav
+include modules/post
+include modules/formModal
+- portal = 'homepage'
+.portal(ng-controller='PortalCtrl', data-cur-portal=portal)
+  +nav(portal)
+  +formModal()
+  aside(social-follow)
+  .top-section.home-top-section(class=portal + " " + portal + "-bg-img-1")
+    .container
+      .header-index
+        h1() The future is Bright
+        h4() Invest in the future, invest in education
+  aside.portals#blog
+    ul
+      li
+        a.portal-button.students.ie8-background-size(href='/students', analytics-on="click", analytics-category="index_portals", analytics-label="students")
+          .name() Students
+            span.inc &nbsp;click here
+          .caption() finance your degree with Brighter Investment
+          .incentive() Learn more
+      li
+        a.portal-button.investors.ie8-background-size(href='/investors', analytics-on="click", analytics-category="index_portals", analytics-label="investors")
+          .name() Investors
+            span.inc &nbsp;click here
+          .caption() earn a great return and alleviate poverty
+          .incentive() Learn more
+      li
+        a.portal-button.universities.ie8-background-size(href='/universities', analytics-on="click", analytics-category="index_portals", analytics-label="universities")
+          .name() Universities
+            span.inc &nbsp;click here
+          .caption() remove financial barriers to education
+          .incentive() Learn more
+      li
+        a.portal-button.highschools.ie8-background-size(href='/highschools', analytics-on="click", analytics-category="index_portals", analytics-label="highschools")
+          .name() High Schools
+            span.inc &nbsp;click here
+          .caption() help your students get a university degree
+          .incentive() Learn more
+  .container
+    .blog
+      +post()
+  +footer(portal)

@@ -1,0 +1,13 @@
+include nav
+include footer
+mixin homepage_template(portal)
+  .portal(ng-controller='PortalCtrl', data-cur-portal=portal)
+    +nav(portal)
+    .top-section.home-top-section.top-portal-bg-img-1
+      .container.homepage
+        .top-section-content
+          .header(btf-markdown="{{createQuery('content_top')}}")
+    .section.container#content-one
+      article.article-container(class=portal)
+        .text(btf-markdown="{{createQuery('content_one')}}")
+  +footer(portal)

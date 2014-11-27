@@ -1,0 +1,7 @@
+.container
+  .form-page(ng-controller='FormCtrl')
+    a.logo(ng-href='/', target='_blank')
+      img(src='/images/brighter_investment.png', alt='Brighter Investment')
+    a.back-link(href='/', target='_blank') 
+      |back to brighterinvestment.com
+    iframe(width="100%", height="{{formHeight}}", frameBorder="0", ng-src="{{formUrl}}", scrolling="no")

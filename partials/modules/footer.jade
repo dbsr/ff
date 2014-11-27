@@ -1,0 +1,37 @@
+mixin footer(portal, custom) 
+  #footer.background.homepage(data-ng-controller='FooterCtrl', data-cur-portal=custom || portal)
+    .container
+      .footer-content
+        .footer-portals
+          .footer-row(ng-repeat='_ in sections[0]')
+            a.footer-cell(ng-if='sections[0][$index].name', ng-bind='sections[0][$index].name',      ng-href='{{sections[0][$index].href}}' , class="{{$index === 0 ? 'heading' :''}}")
+            a.footer-cell(ng-if='sections[0][$index].text', ng-bind='{{sections[0][$index].text}}'   ng-href='{{sections[0][$index].href}}', class="{{$index === 0 ? 'heading' :''}}")
+            a.footer-cell(ng-if='sections[1][$index].name', ng-bind='sections[1][$index].name'       ng-href='{{sections[1][$index].href}}', class="{{$index === 0 ? 'heading' :''}}")
+            a.footer-cell(ng-if='sections[1][$index].text', ng-bind='{{sections[1][$index].text}}',  ng-href='{{sections[1][$index].href}}', class="{{$index === 0 ? 'heading' :''}}")
+            a.footer-cell(ng-if='sections[2][$index].name', ng-bind='sections[2][$index].name',      ng-href='{{sections[2][$index].href}}', class="{{$index === 0 ? 'heading' :''}}")
+            a.footer-cell(ng-if='sections[2][$index].text', ng-bind='{{sections[2][$index].text}}',  ng-href='{{sections[2][$index].href}}', class="{{$index === 0 ? 'heading' :''}}")
+            a.footer-cell(ng-if='sections[3][$index].name', ng-bind='sections[3][$index].name',      ng-href='{{sections[3][$index].href}}', class="{{$index === 0 ? 'heading' :''}}")
+            a.footer-cell(ng-if='sections[3][$index].text', ng-bind='{{sections[3][$index].text}}',  ng-href='{{sections[3][$index].href}}', class="{{$index === 0 ? 'heading' :''}}")
+            a.footer-cell(ng-if='sections[4][$index].name', ng-bind='sections[4][$index].name',      ng-href='{{sections[4][$index].href}}', class="{{$index === 0 ? 'heading' :''}}")
+            a.footer-cell(ng-if='sections[4][$index].text', ng-bind='{{sections[4][$index].text}}',  ng-href='{{sections[4][$index].href}}', class="{{$index === 0 ? 'heading' :''}}")
+        .share-section
+          h2.share-header
+            |Share to help us reach our audience
+          ul(ng-social-buttons, data-title="'Brighter Investment'", data-image="'http://www.brighterinvestment.com/images/brighter_investment_og_logo.png'", data-url='$location.absUrl()', data-description="'This new fund opens up education to the poor and shares the financial gains with its investors. - In exchange for a percentage of their income Brighter Investment helps talented students in developing countries to get a degree. Because they value a student’s future potential instead of their current financial situation, Brighter Investment is able to help students that banks will not. Read more on brighterinvestment.com'")
+            li.ng-social-facebook-feed(ng-social-facebook-feed)
+              i.icon.facebook(alt='share on facebook', title='share on facebook!')
+            li.ng-social-twitter
+              i.icon.twitter(alt='share on twitter', title='share on twitter!')
+            li.ng-social-google-plus
+              i.icon.google.plus(alt='share on google plus', title='share on google plus!')
+            li.ng-social-linkedin
+              i.icon.linkedin(alt='share on linkedin', title='share on linkedin!')
+            li
+              a(ng-href='mailto:?subject=Brighter%20Investment:%20This%20new%20fund%20makes%20higher%20education%20available%20to%20the%20poor%20and%20shares%20the%20financial%20gains%20with%20its%20investors&body=This%20new%20fund%20opens%20up%20education%20to%20the%20poor%20and%20shares%20the%20financial%20gains%20with%20its%20investors.%20-%20In%20exchange%20for%20a%20percentage%20of%20their%20income%20Brighter%20Investment%20helps%20talented%20students%20in%20developing%20countries%20to%20get%20a%20degree.%20Because%20they%20value%20a%20student’s%20future%20potential%20instead%20of%20their%20current%20financial%20situation,%20Brighter%20Investment%20is%20able%20to%20help%20students%20that%20banks%20will%20not.%20Read%20more%20on%20www.brighterinvestment.com', target='_blank')
+                i.icon.mail
+      .share-logo
+        .footer-logo
+          img(src='/images/brighter_investment_white.png')
+      if 'investors' === portal
+        .disclaimer(data-ng-bind='pageData.investors_footer_disclaimer')
+      small.copyright &copy; Copyright 2014 Brighter Investment. All rights reserved

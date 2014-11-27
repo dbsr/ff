@@ -1,0 +1,10 @@
+include partials/modules/formModal
+doctype html
+html#ng-app(lang='en', xmlns:ng='http.angularjs.org', ng-app='biApp')
+  head
+    include includes/head
+    // 
+      #{lastCommit}
+  body(data-resize-event)
+    div#container(route-transition, class='ng-view')
+    include includes/foot
